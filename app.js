@@ -12,7 +12,13 @@ const connect = () => {
 }
 
 const userRoutes = require('./models/userModel/routes')
+const productRoutes = require('./models/productModel/routes')
+const cartRoutes = require('./models/cartModel/routes')
+const orderRoutes = require('./models/orderModel/routes')
 app.use('/v1', userRoutes)
+app.use('/v1', productRoutes)
+app.use('/v1', cartRoutes)
+app.use('/v1',orderRoutes)
 app.listen(process.env.PORT || 3999, () => {
     connect()
     console.log("DB connected")

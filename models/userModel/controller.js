@@ -41,7 +41,7 @@ module.exports.Login = async (req, res) => {
         if (!token) {
             return res.json({ success: false, message: "Error logging in" })
         }
-        return res.json({ success: false, message: "Login Successful", token: token })
+        return res.json({ success: true, message: "Login Successful", token: token })
 
     }
     catch (err) {
@@ -49,5 +49,13 @@ module.exports.Login = async (req, res) => {
     }
 }
 module.exports.TestRoute = async(req,res)=>{
-    return res.json({success:true,message:"protected Route"})
+    console.log(req.body)
+    try{
+        return res.json({success:true,message:"protected Route"})
+    }
+    catch(err){
+        
+        return res.json({success:true,message:"UnAuthorized access"})
+    }
+    
 }
